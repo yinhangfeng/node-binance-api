@@ -3775,6 +3775,11 @@ let api = function Binance( options = {} ) {
             }
         },
 
+        continuousKlines: function ( pair, contractType, interval = '5m', options = { limit: 500 } ) {
+            const params = Object.assign( { pair: pair, interval: interval, contractType }, options );
+            return promiseRequest( 'v1/continuousKlines', params, { base: fapi } );
+        },
+
         /**
         * Queries the public api
         * @param {string} url - the public api endpoint
